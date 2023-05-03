@@ -1,9 +1,12 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+
+import java.util.concurrent.TimeUnit;
 
 /*
 In the class we will be able to pass pre- & post- conditions to
@@ -14,7 +17,7 @@ public class Hooks {
     //@Before (order = 1)
     @Before(order = 0)
     public void setUp(){
-        System.out.println("====Setting up browser using cucumber @Before");
+        System.out.println("Before Method");
     }
 
     //@Before (value = "@login", order = 2)
@@ -39,6 +42,7 @@ public class Hooks {
            scenario.attach(screenshot, "image/png", scenario.getName());
 
        }
+         BrowserUtils.sleep(5);
         Driver.closeDriver();
     }
      @BeforeStep
